@@ -47,6 +47,10 @@ export function CalendarProcessor() {
     console.debug("useeffect", selectedYmd, data.get(selectedYmd));
   }, [selectedYmd, data]); // Recalculate when selectedYmd changes or the dates map is updated
 
+  function nextDay() {
+    setSelectedYmd(selectedYmd + 1);
+  }
+
   function processInput() {
     // Process the input into an array of dates.
     let firstYmd = 30000000;
@@ -88,13 +92,16 @@ export function CalendarProcessor() {
 
   function submitToEverhour() {
     if (!dataDay) return;
-    dataDay.tasks.forEach((task) => {
+    Promise.all(dataDay.tasks.map((task) => {
       if (!task.everhourTaskId) {
         console.error("No everhour task id for", task);
         return;
       }
       const everhourDate = `${dataDay.year}-${`0${dataDay.month}`.slice(-2)}-${`0${dataDay.day}`.slice(-2)}`;
-      addTime(task.everhourTaskId, task.durationMinutes * 60, everhourDate, task.everhourComment);
+      return addTime(task.everhourTaskId, task.durationMinutes * 60, everhourDate, task.everhourComment);
+    })).then(() => {
+      console.info("Submitted to Everhour");
+      nextDay();
     });
   }
 
@@ -196,12 +203,12 @@ export function CalendarProcessor() {
               </TableBody>
             </Table>
             <div className="flex justify-end mt-4 gap-2">
-              <Button>
+              <Button onClick={nextDay}>
                 Skip {">"}
                 {/* <ArrowRightIcon className="mr-1 h-4 w-4 -translate-x-1" /> */}
               </Button>
               <Button onClick={submitToEverhour}>
-                Process {">"}
+                Submit to Everhour {">"}
                 {/* <ArrowRightIcon className="mr-1 h-4 w-4 -translate-x-1" /> */}
               </Button>
             </div>
