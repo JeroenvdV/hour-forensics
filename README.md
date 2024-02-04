@@ -10,7 +10,7 @@ A member of your organisation is suddenly ill or leaves, and their time logs are
 
 ## Sources
 
-- Google Calendar: [Supported] Via full export and subsequent manual analysis in a spreadsheet 
+- Google Calendar: [Supported] Via full export and subsequent manual analysis in a spreadsheet
 - Other calendars: if you can export into the right format, then you can use them.
 - Google Docs history: [Future] intended for future version
 - GitHub: [Future] intended for future version
@@ -19,7 +19,7 @@ A member of your organisation is suddenly ill or leaves, and their time logs are
 
 - Everhour: [Supported]
 
-# Development 
+# Development
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
