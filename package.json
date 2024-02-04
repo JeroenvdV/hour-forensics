@@ -21,6 +21,5 @@
   },
   "type": "module",
   "dependencies": {
-    "request": "^2.88.2"
   }
 }
