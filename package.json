@@ -1,0 +1,26 @@
+{
+  "name": "hours",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "devdebug": "NODE_OPTIONS=\"--inspect\" vite dev",
+    "dev": "vite dev",
+    "devforce": "vite --force dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "playwright test",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+    "test:unit": "vitest",
+    "lint": "eslint .",
+    "lint-fix": "eslint --fix .",
+    "format": "dprint fmt"
+  },
+  "devDependencies": {
+    "dprint": "^0.43.2"
+  },
+  "type": "module",
+  "dependencies": {
+    "request": "^2.88.2"
+  }
+}
