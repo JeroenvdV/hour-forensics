@@ -10,7 +10,8 @@
     "**/*-lock.json",
     "**/*-lock.yaml",
     ".svelte-kit",
-    ".vercel"
+    ".vercel",
+    ".next"
   ],
   "plugins": [
     "https://plugins.dprint.dev/typescript-0.88.3.wasm",
