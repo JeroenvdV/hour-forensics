@@ -38,8 +38,8 @@ export function CalendarProcessor() {
       // Enrich tasks
       Promise.all(
         tasksForSelectedDate.tasks.map((task) =>
-          getEverhourTaskIdForJiraIssue(task.jiraIssue).then((taskId) => {
-            task.everhourTaskId = taskId;
+          getEverhourTaskIdForJiraIssue(task.jiraIssue).then((retVal: { taskId: string | undefined }) => {
+            task.everhourTaskId = retVal.taskId;
           })
         ),
       ).then(() => setDataDay(tasksForSelectedDate));
